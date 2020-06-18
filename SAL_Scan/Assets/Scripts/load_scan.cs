@@ -23,7 +23,6 @@ public class load_scan : MonoBehaviour
 
         // Instantiate point cloud mesh
         mesh = new Mesh();
-        // mesh.MarkDynamic();
         mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
         GetComponent<MeshFilter>().mesh = mesh;
         GetComponent<MeshRenderer>().material = mat;
@@ -41,7 +40,6 @@ public class load_scan : MonoBehaviour
                 point_list.Add(new Vector3(float.Parse(s[0]), float.Parse(s[1]), float.Parse(s[2])));
                 color_list.Add(new Color(float.Parse(s[3]), float.Parse(s[4]), float.Parse(s[5])));
             }
-            
         }
 
         // Close I/O
@@ -67,11 +65,5 @@ public class load_scan : MonoBehaviour
         mesh.colors = colors;
         mesh.SetIndices(indices, MeshTopology.Points, 0);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
